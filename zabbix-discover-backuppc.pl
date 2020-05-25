@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Backuppc
-use lib "/usr/share/backuppc/lib";
+use lib "/usr/local/BackupPC/lib";
 use BackupPC::Lib;
 use BackupPC::CGI::Lib;
 
@@ -20,10 +20,10 @@ GetStatusInfo("jobs queueLen info");
 # Functions
 sub hosts_info
 {
-	print '{  "data":['."\n";
+        print '{  "data":['."\n";
         my $comma='';
-	while ( my ($host, $value) = each(%$hosts) )
-	{
+        while ( my ($host, $value) = each(%$hosts) )
+        {
            print $comma.'    {"{#BACKUPHOST}":"'.$host.'"}'."\n";
            $comma=",";
         }
@@ -91,5 +91,3 @@ sub ServerConnect
         }
     }
 }
-
-
